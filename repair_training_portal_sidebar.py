@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Repair the Temenos training portal sidebar/search/index without changing the crawler.
+Repair the training portal sidebar/search/index without changing the crawler.
 
 What this script fixes:
 - rebuilds menu.js from the local pages folder, not from breadcrumb noise
@@ -28,7 +28,7 @@ from typing import Dict, Iterable, List, Optional
 from bs4 import BeautifulSoup
 
 
-DEFAULT_ROOT = r"D:\Code-Projects\scrape_temenos\training-portal"
+DEFAULT_ROOT = r"D:\Code-Projects\scrape_portal\training-portal"
 DEFAULT_OUTPUT = None  # in-place by default
 
 
@@ -62,7 +62,7 @@ INDEX_HTML = """<!DOCTYPE html>
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Temenos Training Portal</title>
+  <title>Training Portal</title>
   <style>
     :root {
       --bg:#f5f7fb;
@@ -251,7 +251,7 @@ INDEX_HTML = """<!DOCTYPE html>
   <div class="app">
     <aside class="sidebar">
       <div class="brand">
-        <h1>Temenos Training Portal</h1>
+        <h1>Training Portal</h1>
         <p>Offline documentation rebuilt from the saved pages folder.</p>
       </div>
       <div class="controls">
@@ -627,7 +627,7 @@ def rebuild_portal(root: Path) -> int:
 
 
 def parse_args() -> argparse.Namespace:
-    p = argparse.ArgumentParser(description="Rebuild a clean Temenos training portal sidebar from saved pages.")
+    p = argparse.ArgumentParser(description="Rebuild a clean training portal sidebar from saved pages.")
     p.add_argument("--root", default=DEFAULT_ROOT, help="Existing training portal root containing pages/ and assets/")
     return p.parse_args()
 

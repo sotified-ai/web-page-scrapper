@@ -2,9 +2,10 @@
 *
 
 # Allow the specific files we want to track
-!temenos_portal_manager.py
+!portal_manager.py
 !build_training_portal.py
 !repair_training_portal_sidebar.py
 !repair_dropdown_sections.py
+
 !README.md
 !.gitignore

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Repair dropdown / accordion sections in saved Temenos portal pages.
+Repair dropdown / accordion sections in saved portal pages.
 
 What it does:
 - scans training-portal/pages/**/*.html
@@ -34,11 +34,11 @@ DROPDOWN_MARKERS = (
     "dropDownHotSpot",
 )
 
-STYLE_ID = "temenos-dropdown-repair-style"
-SCRIPT_ID = "temenos-dropdown-repair-script"
+STYLE_ID = "portal-dropdown-repair-style"
+SCRIPT_ID = "portal-dropdown-repair-script"
 
 REPAIR_CSS = """
-/* Temenos dropdown repair */
+/* Portal dropdown repair */
 .MCDropDown_Closed,
 .dropDown_Closed {
   display: block !important;
@@ -233,11 +233,11 @@ def iter_html_files(root: Path) -> Iterable[Path]:
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="Repair dropdown sections in Temenos saved pages.")
+    parser = argparse.ArgumentParser(description="Repair dropdown sections in saved pages.")
     parser.add_argument(
         "--root",
         required=True,
-        help="Path to the training-portal folder, e.g. D:\\Code-Projects\\scrape_temenos\\training-portal",
+        help="Path to the training-portal folder, e.g. D:\\Code-Projects\\scrape_portal\\training-portal",
     )
     parser.add_argument("--dry-run", action="store_true", help="Do not write files, just report what would change.")
     args = parser.parse_args()

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Authenticated Temenos docs crawler + offline training portal builder.
+Authenticated documentation docs crawler + offline training portal builder.
 
 Flow:
 1) Open the start URL in a browser and log in manually once.
@@ -33,9 +33,9 @@ from bs4 import BeautifulSoup
 from playwright.async_api import async_playwright
 
 DEFAULT_START_URL = (
-    "https://docs.temenos.com/docs/Solutions/LMS/Product_Guides/Services/ServiceModule/Welcome.html#"
+    "https://docs.example.com/docs/Welcome.html#"
 )
-DEFAULT_DOMAIN = "docs.temenos.com"
+DEFAULT_DOMAIN = "docs.example.com"
 DEFAULT_OUTPUT = "training-portal"
 DEFAULT_STORAGE = "storage_state.json"
 DEFAULT_MAX_PAGES = 5000
@@ -1071,7 +1071,7 @@ INDEX_HTML = """<!DOCTYPE html>
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Temenos Training Portal</title>
+  <title>Documentation Training Portal</title>
   <style>
     :root {
       --bg:#f5f7fb; --panel:#fff; --panel2:#eef3ff; --text:#1e2430; --muted:#6b7484;
@@ -1139,7 +1139,7 @@ INDEX_HTML = """<!DOCTYPE html>
   <div class="app">
     <aside class="sidebar">
       <div class="brand">
-        <h1>Temenos Training Portal</h1>
+        <h1>Documentation Training Portal</h1>
         <p>Offline documentation from the authenticated sidebar crawl.</p>
       </div>
       <div class="controls">
@@ -1310,7 +1310,7 @@ def write_portal(out_root: Path, records: List[PageRecord]) -> None:
 
 
 def parse_args() -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description="Build offline Temenos training portal from authenticated sidebar crawl")
+    parser = argparse.ArgumentParser(description="Build offline documentation training portal from authenticated sidebar crawl")
     parser.add_argument("--start-url", default=DEFAULT_START_URL)
     parser.add_argument("--output", default=DEFAULT_OUTPUT)
     parser.add_argument("--storage-state", default=DEFAULT_STORAGE)

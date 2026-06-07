@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 """
-Temenos Portal Manager
+Docs Portal Manager
 
-A single entry point for the existing Temenos portal tools.
+A single entry point for the existing documentation portal tools.
 
 What it does:
-- crawls a new authenticated Temenos URL using the existing build_training_portal.py
+- crawls a new authenticated portal URL using the existing build_training_portal.py
 - repairs image paths using --repair-assets
 - rebuilds the sidebar/search/index from the saved pages folder
 - repairs dropdown / accordion sections in saved pages
@@ -32,7 +32,7 @@ DROPDOWN_REPAIR_SCRIPT = SCRIPT_DIR / "repair_dropdown_sections.py"
 DEFAULT_START_URL = "defaulturl"
 DEFAULT_OUTPUT = r"folder output"
 DEFAULT_STORAGE = str(SCRIPT_DIR / "storage_state.json")
-DEFAULT_DOMAIN = "docs.temenos.com"
+DEFAULT_DOMAIN = "docs.example.com"
 
 
 def log(msg: str) -> None:
@@ -166,7 +166,7 @@ def run_repair_all(args: argparse.Namespace) -> int:
 
 def parse_args() -> argparse.Namespace:
     p = argparse.ArgumentParser(
-        description="One reusable entry point for Temenos crawl + repair workflows"
+        description="One reusable entry point for portal crawl + repair workflows"
     )
     p.add_argument(
         "mode",
